@@ -1,0 +1,446 @@
+#!/usr/bin/env python
+# coding: utf-8
+
+# In[111]:
+
+
+import pandas as pd
+import numpy as np
+
+
+# In[63]:
+
+
+hawaii = pd.read_csv('C:/Users/racqu/OneDrive/Documents/Hawaii listings.csv')
+
+
+# In[64]:
+
+
+hawaii.head()
+
+
+# In[5]:
+
+
+Barcelona = pd.read_csv('C:/Users/racqu/OneDrive/Documents/Barcelona listing.csv')
+
+
+# In[6]:
+
+
+Barcelona.head()
+
+
+# In[7]:
+
+
+Tokyo = pd.read_csv('C:/Users/racqu/OneDrive/Documents/Tokyo Listing.csv')
+
+
+# In[8]:
+
+
+Tokyo.head()
+
+
+# In[9]:
+
+
+Athens = pd.read_csv('C:/Users/racqu/OneDrive/Documents/Athens listings.csv')
+
+
+# In[10]:
+
+
+Athens.head()
+
+
+# In[11]:
+
+
+Sydeny = pd.read_csv('C:/Users/racqu/OneDrive/Documents/Sydeny listing.csv')
+
+
+# In[12]:
+
+
+Sydeny.head()
+
+
+# In[14]:
+
+
+NO = pd.read_csv('C:/Users/racqu/OneDrive/Documents/New Orleans listing.csv')
+
+
+# In[15]:
+
+
+NO.head()
+
+
+# In[17]:
+
+
+Barcelona.drop(['neighbourhood_group'], axis=1)
+
+
+# In[18]:
+
+
+Sydeny.drop(['neighbourhood_group'], axis=1)
+
+
+# In[19]:
+
+
+Athens.drop(['neighbourhood_group'], axis=1)
+
+
+# In[20]:
+
+
+Tokyo.drop(['neighbourhood_group'], axis=1)
+
+
+# In[22]:
+
+
+NO.drop(['last_review'], axis=1)
+
+
+# In[23]:
+
+
+Tokyo.drop(['last_review'], axis=1)
+
+
+# In[24]:
+
+
+Barcelona.drop(['last_review'], axis=1)
+
+
+# In[25]:
+
+
+Sydeny.drop(['last_review'], axis=1)
+
+
+# In[26]:
+
+
+Athens.drop(['last_review'], axis=1)
+
+
+# In[28]:
+
+
+NO.drop(['reviews_per_month'], axis=1)
+
+
+# In[29]:
+
+
+Tokyo.drop(['reviews_per_month'], axis=1)
+
+
+# In[30]:
+
+
+Sydeny.drop(['reviews_per_month'], axis=1)
+
+
+# In[31]:
+
+
+Barcelona.drop(['reviews_per_month'], axis=1)
+
+
+# In[32]:
+
+
+Athens.drop(['reviews_per_month'], axis=1)
+
+
+# In[33]:
+
+
+Athens.head()
+
+
+# In[55]:
+
+
+AthensC= Athens[['id', 'name', 'host_id', 'host_name', 'neighbourhood', 'room_type', 'price', 'minimum_nights', 'number_of_reviews', 'availability_365']]
+
+
+# In[56]:
+
+
+SydenyC= Sydeny[['id', 'name', 'host_id', 'host_name', 'neighbourhood', 'room_type', 'price', 'minimum_nights', 'number_of_reviews', 'availability_365']]
+
+
+# In[57]:
+
+
+TokyoC= Tokyo[['id', 'name', 'host_id', 'host_name', 'neighbourhood', 'room_type', 'price', 'minimum_nights', 'number_of_reviews', 'availability_365']]
+
+
+# In[58]:
+
+
+BarcelonaC= Barcelona[['id', 'name', 'host_id', 'host_name', 'neighbourhood', 'room_type', 'price', 'minimum_nights', 'number_of_reviews', 'availability_365']]
+
+
+# In[59]:
+
+
+NOC= NO[['id', 'name', 'host_id', 'host_name', 'neighbourhood', 'room_type', 'price', 'minimum_nights', 'number_of_reviews', 'availability_365']]
+
+
+# In[47]:
+
+
+AthensC.head()
+
+
+# In[48]:
+
+
+SydenyC.head()
+
+
+# In[49]:
+
+
+TokyoC.head()
+
+
+# In[66]:
+
+
+BarcelonaC.head()
+
+
+# In[70]:
+
+
+NOC.head()
+
+
+# In[72]:
+
+
+def room_type (series):
+    if series == "Entire home/apt":
+        return 0
+    if series == "Private room":
+        return 1
+    if series == "Hotel room":
+        return 2
+    if series == "Shared room":
+        return 3
+    
+AthensC['RT'] = AthensC['room_type'].apply(room_type)
+
+
+# In[73]:
+
+
+AthensC.head()
+
+
+# In[75]:
+
+
+def room_type (series):
+    if series == "Entire home/apt":
+        return 0
+    if series == "Private room":
+        return 1
+    if series == "Hotel room":
+        return 2
+    if series == "Shared room":
+        return 3
+    
+SydenyC['RT'] = SydenyC['room_type'].apply(room_type)
+
+
+# In[76]:
+
+
+def room_type (series):
+    if series == "Entire home/apt":
+        return 0
+    if series == "Private room":
+        return 1
+    if series == "Hotel room":
+        return 2
+    if series == "Shared room":
+        return 3
+    
+BarcelonaC['RT'] = BarcelonaC['room_type'].apply(room_type)
+
+
+# In[78]:
+
+
+def room_type (series):
+    if series == "Entire home/apt":
+        return 0
+    if series == "Private room":
+        return 1
+    if series == "Hotel room":
+        return 2
+    if series == "Shared room":
+        return 3
+    
+TokyoC['RT'] = TokyoC['room_type'].apply(room_type)
+
+
+# In[79]:
+
+
+def room_type (series):
+    if series == "Entire home/apt":
+        return 0
+    if series == "Private room":
+        return 1
+    if series == "Hotel room":
+        return 2
+    if series == "Shared room":
+        return 3
+    
+NOC['RT'] = NOC['room_type'].apply(room_type)
+
+
+# In[80]:
+
+
+NOC.head()
+
+
+# In[81]:
+
+
+SydenyC.head()
+
+
+# In[83]:
+
+
+TokyoC.head()
+
+
+# In[84]:
+
+
+BarcelonaC.head()
+
+
+# In[101]:
+
+
+C1= pd.merge(AthensC, SydenyC, how = "left")
+
+
+# In[102]:
+
+
+C1.head(100)
+
+
+# In[97]:
+
+
+AthensC.head(100)
+
+
+# In[95]:
+
+
+SydenyC.head(10)
+
+
+# In[103]:
+
+
+C2= pd.merge(C1, TokyoC, how= "right")
+
+
+# In[104]:
+
+
+C2.head()
+
+
+# In[105]:
+
+
+C3= pd.merge(C2, BarcelonaC, how= "right")
+
+
+# In[106]:
+
+
+C3.head()
+
+
+# In[107]:
+
+
+C4= pd.merge(C3, NOC, how= "right")
+
+
+# In[108]:
+
+
+C4.head()
+
+
+# In[123]:
+
+
+import pandas as pd
+import numpy as np
+import seaborn as sns
+import matplotlib.mlab as mlab
+import matplotlib.pyplot as plt
+
+
+# In[ ]:
+
+
+Plot = C4.plot.scatter(x='price', y='RT')
+Plot.set_title("Price by room type")
+Plot.set_xlabel("price")
+Plot.set_ylabel("Room type")
+
+
+# In[118]:
+
+
+import pip
+pip.main(['install','seaborn'])
+
+
+# In[119]:
+
+
+crosstab_C4 = pd.crosstab(Where.Rt, Where.price) 
+crosstab_C4.plot.bar(stacked=True)
+
+
+# In[121]:
+
+
+plt.plot(C4['price'], C4['RT'])
+
+
+# In[ ]:
+
+
+
+
