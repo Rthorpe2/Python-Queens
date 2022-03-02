@@ -7,4 +7,4 @@ A thorough examination of Airbnb data from the last couple of years.
 
 Python Queens group project consisting of members; Evelyn, Elena, Racquel and Reina.
 
-![heat maps](https://user-images.githubusercontent.com/90482942/156281398-2e999d0c-1b80-426b-a6dd-5f0a3d0505b0.png)
+
